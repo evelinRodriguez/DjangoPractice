@@ -2,18 +2,17 @@
 
 # Create your views here.
 from django.http import HttpResponse
+from django.template import loader
 from .models import Album
 
 
 def index(request):
     allAlbums = Album.objects.all()
-    html = ''
-    for album in allAlbums:
-        # esto es para que en urls.py reconoza el link
-        url = str(album.id) + '/'
-        # aqui va a poner cada una de las urls creadas con el titulo del album
-        html += '<a href="' + url + '">' + album.albumTitle + '</a><br>'
-    return HttpResponse(html)
+    template = loader.get_template('music/index.html')
+    context = {
+        'all albums': allAlbums,
+    }
+    return HttpResponse(template.render(context, request))
 
 # def index(request):
 # return render(request, 'firstHelloWorld/music/page.html')

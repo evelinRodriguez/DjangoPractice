@@ -55,7 +55,7 @@ ROOT_URLCONF = 'firstHelloWorld.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['music/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
