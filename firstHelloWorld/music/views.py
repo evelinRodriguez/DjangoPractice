@@ -8,7 +8,7 @@ from .models import Album
 
 
 def index(request):
-    return HttpResponse('<h1>HOLA</h1>')
+    # return HttpResponse('<h1>HOLA</h1>')
     allAlbums = Album.objects.all()
     # template = loader.get_template('music/index.html')
     context = {'allAlbums': allAlbums}
